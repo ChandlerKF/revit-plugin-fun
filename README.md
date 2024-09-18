@@ -5,7 +5,7 @@ This is a filterable and searchable tool library that will be embedded via an if
 
 <b>How to Edit</b><br>
 Locate the HTML file
-The entire project is contained within the index.html file. You can edit this file directly for any changes.
+The entire project is contained within the Revit Addons_no Tool Type_filter and search.html file. You can edit this file directly for any changes.
 
 <h1>Sections of the HTML File</h1><br>
 
