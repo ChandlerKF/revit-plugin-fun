@@ -6,208 +6,216 @@
     <title>Tool Library</title>
     <style>
     /* Importing Raleway font */
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
-        
-        body {
-            font-family: 'Raleway', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
-        .tool-library {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-            background-color: white;
-            padding: 20px;
-        }
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-        .filters {
-            display: flex;
-            gap: 15px; /* Adds space between the filters */
-            flex-wrap: nowrap; /* Prevents wrapping */
-            justify-content: space-between; /* Distributes space between filters */
-            width: 100%;
-            max-width: 1200px; /* Adjust as needed to fit your layout */
-            margin-bottom: 20px;
-        }
+.tool-library {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: white;
+    padding: 20px;
+}
 
-        .filter-box {
-            flex: 1; /* Allows filters to grow and shrink as needed */
-            min-width: 150px; /* Ensures a minimum width for each filter box */
-        }
+.filters {
+    display: flex;
+    gap: 15px; /* Adds space between the filters */
+    flex-wrap: nowrap; /* Prevents wrapping */
+    justify-content: space-between; /* Distributes space between filters */
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed to fit your layout */
+    margin-bottom: 20px;
+}
 
-        .filter-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
+.filter-box {
+    flex: 1; /* Allows filters to grow and shrink as needed */
+    min-width: 150px; /* Ensures a minimum width for each filter box */
+}
 
-        .filters select {
-            width: 100%;
-            padding: 10px;
-            padding-right: 20px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Raleway', sans-serif;
-        }
+.filter-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
 
-        .tool-card {
-            width: 100%;
-            max-width: 1200px;
-            background-color: white;
-            border: 1px solid #F5F5F5;
-            border-radius: 10px;
-            margin-bottom: 15px; /* Space between cards */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.3s ease;
-        }
+.filters select {
+    width: 100%;
+    padding: 10px;
+    padding-right: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+}
 
-        .card-header {
-            padding: 20px;
-            position: relative;
-            cursor: pointer;
-        }
+.tool-card {
+    width: 100%;
+    max-width: 1200px;
+    background-color: white;
+    border: 1px solid #F5F5F5;
+    border-radius: 10px;
+    margin-bottom: 15px; /* Space between cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+}
 
-        .tool-name {
-            color: #00A3AD;
-            font-weight: bold;
-            margin: 0;
-            font-size: 18px; /* Increase the font size */
-            text-align: left;
-        }
+.card-header {
+    padding: 20px;
+    position: relative;
+}
 
-        .tool-name a {
-            text-decoration: none;
-            color: #00A3AD;
-            font-size: 18px; /* Match the font size of .tool-name */
-        }
+.tool-name {
+    color: #00A3AD;
+    font-weight: bold;
+    margin: 0;
+    font-size: 18px; /* Increase the font size */
+    text-align: left;
+}
 
-        /* Hover effect only for linked titles */
-        .tool-name a:hover {
-            text-decoration: underline;
-        }
+.tool-name a {
+    text-decoration: none;
+    color: #00A3AD;
+    font-size: 18px; /* Match the font size of .tool-name */
+}
 
-        .tool-description {
-            margin: 10px 0 0; /* Ensure it is below the title */
-            color: #333;
-            font-weight: 400;
-            text-align: left;
-            font-size: 14px;
-        }
+/* Hover effect only for linked titles */
+.tool-name a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
-        .chevron {
-            font-size: 12px; /* Adjusted size for better visibility */
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            transform: scaleX(1.75);
-            color: black;
-        }
-        .tool-card.active .card-body {
-			display: block;
-			/* Show content when active */
-		}
-	
-		.tool-card.active .chevron {
-			transform: scaleX(1.5) rotate(180deg);
-			/* Rotate arrow when active */
-		}
-        .card-body {
-            display: none; /* Hidden by default */
-            padding: 20px;
-            background-color: white;
-            text-align: left;
-            font-size: 14px;
-        }
+.tool-description {
+    margin: 10px 0 0; /* Ensure it is below the title */
+    color: #333;
+    font-weight: 400;
+    text-align: left;
+    font-size: 14px;
+}
 
-        .card-body p {
-            margin: 5px 0;
-            color: #000;
-        }
+.chevron {
+    font-size: 12px; /* Adjusted size for better visibility */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer; /* Pointer cursor for the dropdown arrow */
+    transition: transform 0.3s ease;
+    transform: scaleX(1.75);
+    color: black;
+}
 
-        .card-body strong {
-            font-weight: 600;
-            color: #000;
-        }
-        .option-item {
-    		margin-bottom: 5px; /* Adjust this value to control the spacing */
-		}
-		.search-box {
-    		display: flex;
-    		align-items: center;
-    		gap: 10px;
-    		margin-bottom: 20px;
-    		width: 100%;
-    		max-width: 1200px;
-    		margin-bottom: 20px;
-		}
+.tool-card.active .card-body {
+    display: block; /* Show content when active */
+}
 
-		.searchBar-container {
-    		position: relative;
-    		display: flex;
-    		align-items: center;
-    		flex-grow: 1;
-    		max-width: 1000px;
-    		width: 100%;
-		}
+.tool-card.active .chevron {
+    transform: scaleX(1.5) rotate(180deg); /* Rotate arrow when active */
+}
 
-		#searchBar {
-    		padding: 10px;
-    		font-size: 16px;
-    		flex-grow: 1;
-    		padding-right: 40px; /* Space for the clear button */
-    		border-radius: 5px;
-    		border: 1px solid #ccc;
-    		width: 100%;
-    		box-sizing: border-box;
-    		color: #333;
-		}
-		#searchBar:-webkit-autofill {
-    		color: #333 !important; /* Text color */
-    		background-color: #fff !important; /* Background color */
-		}
+.card-body {
+    display: none; /* Hidden by default */
+    padding: 20px;
+    background-color: white;
+    text-align: left;
+    font-size: 14px;
+}
+
+.card-body p {
+    margin: 5px 0;
+    color: #000;
+}
+
+.card-body strong {
+    font-weight: 600;
+    color: #000;
+}
+
+.option-item {
+    margin-bottom: 5px; /* Adjust this value to control the spacing */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.searchBar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 1000px;
+    width: 100%;
+}
+
+#searchBar {
+    padding: 10px;
+    font-size: 16px;
+    flex-grow: 1;
+    padding-right: 40px; /* Space for the clear button */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+    color: #333;
+}
+
+#searchBar:-webkit-autofill {
+    color: #333 !important; /* Text color */
+    background-color: #fff !important; /* Background color */
+}
 
 /* Style for focus state */
-		#searchBar:focus {
-    		border-color: #66afe9; /* Border color when focused (adjust if needed) */
-    		box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow for focus effect */
-		}
+#searchBar:focus {
+    border-color: #66afe9; /* Border color when focused (adjust if needed) */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow for focus effect */
+}
 
-		#clearSearchButton {
-    		position: absolute;
-    		right: 12px;
-    		top: 50%;
-    		transform: translateY(-50%);
-    		padding: 0 5px;
-    		font-size: 18px;
-    		cursor: pointer;
-    		background-color: white;
-    		color: gray;
-    		border: none;
-    		border-radius: 5px;
-		}
+#clearSearchButton {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: white;
+    color: gray;
+    border: none;
+    border-radius: 5px;
+}
 
-		#searchButton {
-    		padding: 10px 20px;
-    		font-size: 16px;
-    		cursor: pointer;
-    		background-color: #00A3AD;
-    		color: white;
-    		border: none;
-    		border-radius: 5px;
-		}
+#searchButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #00A3AD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
 
-		#searchButton:hover {
-    		background-color: #88DBDF;
+#searchButton:hover {
+    background-color: #88DBDF;
+}
+
+.tool-card .card-body,
+.tool-card {
+    cursor: auto; /* Default cursor for non-interactive areas */
+}
 
 </style>
 
